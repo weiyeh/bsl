@@ -44,8 +44,8 @@
                              #'-std=c++11', # gcc 4.7
                               '-pthread', ],       # thread aware (not optional)
             'cflags_opt%': [ '-O2', '-fno-strict-aliasing', ],
-            'cflags_c_debug%':  [ '-g' ],
-            'cflags_cc_debug%': [ '-g' ],
+            'cflags_c_debug%':  [ '-g -fno-inline' ],
+            'cflags_cc_debug%': [ '-g -fno-inline' ],
             'cflags_cc_exc%': [ '-fexceptions', ],
             'cflags_c_extra%':  [ ],
             'cflags_cc_extra%': [ ],
@@ -88,6 +88,7 @@
             'ldflags_abi_32%': [ '-m32' ],
             'ldflags_abi_64%': [ '-m64' ],
             'ldflags_PIC%': [ '-fPIC' ],
+            'ldflags_extra%': [ ],
           }], # linker_tag == "gnu_ld"
 
 
@@ -121,6 +122,7 @@
             'ldflags_abi_32%': [ '-q32 -b32 -brtl' ],
             'ldflags_abi_64%': [ '-q64 -b64 -brtl' ],
             'ldflags_PIC%': [ ],
+            'ldflags_extra%': [ ],
           }], # linker_tag == "aix_ld"
 
 
@@ -145,6 +147,7 @@
             'ldflags_abi_32%': [ '-m32' ],
             'ldflags_abi_64%': [ '-m64' ],
             'ldflags_PIC%': [ ],
+            'ldflags_extra%': [ ],
           }], # linker_tag == "solaris_ld"
 
 
@@ -182,6 +185,7 @@
             'ldflags_abi_32%': [ ],
             'ldflags_abi_64%': [ ],
             'ldflags_PIC%': [ ],
+            'ldflags_extra%': [ ],
           }], # linker_tag == "msvs"
 
 
@@ -193,9 +197,6 @@
           [ 'OS == "mac"', {
             'defines_base': [
               '__unix',              # xcodebuild/clang does not define __unix
-              '__CLANG_GNUC__=4',
-              '__CLANG_GNUC_MINOR__=2',
-              '__CLANG_GNUC_PATCHLEVEL__=1',
             ],
             'cflags_abi_32=': [ 'i386' ],
             'cflags_abi_64=': [ 'x86_64' ],
@@ -211,7 +212,6 @@
       'linker_tag%': '<(linker_tag)',
       'defines_base': [ '<@(defines_base)' ],
       'cflags_base%':  [ '<@(cflags_base)' ],
-      'ldflags_base%': [ '<@(ldflags_base)' ],
       'cflags_opt%':   [ '<@(cflags_opt)' ],
       'cflags_c_debug%': [ '<@(cflags_c_debug)' ],
       'cflags_cc_debug%': [ '<@(cflags_cc_debug)' ],
@@ -221,10 +221,12 @@
       'cflags_diags%': [ '<@(cflags_diags)' ],
       'cflags_abi_32%': [ '<@(cflags_abi_32)' ],
       'cflags_abi_64%': [ '<@(cflags_abi_64)' ],
+      'cflags_PIC%':  [ '<@(cflags_PIC)' ],
+      'ldflags_base%': [ '<@(ldflags_base)' ],
       'ldflags_abi_32%': [ '<@(ldflags_abi_32)' ],
       'ldflags_abi_64%': [ '<@(ldflags_abi_64)' ],
-      'cflags_PIC%':  [ '<@(cflags_PIC)' ],
       'ldflags_PIC%': [ '<@(ldflags_PIC)' ],
+      'ldflags_extra%': [ '<@(ldflags_extra)' ],
 
       'conditions': [
         [ 'ABI_bits == 64', {
@@ -245,7 +247,6 @@
      'linker_tag%': '<(linker_tag)',
      'defines_base': [ '<@(defines_base)' ],
      'cflags_base%':  [ '<@(cflags_base)' ],
-     'ldflags_base%': [ '<@(ldflags_base)' ],
      'cflags_opt%':   [ '<@(cflags_opt)' ],
      'cflags_c_debug%': [ '<@(cflags_c_debug)' ],
      'cflags_cc_debug%': [ '<@(cflags_cc_debug)' ],
@@ -254,9 +255,11 @@
      'cflags_cc_extra%': [ '<@(cflags_cc_extra)' ],
      'cflags_diags%': [ '<@(cflags_diags)' ],
      'cflags_abi%':  [ '<@(cflags_abi)' ],
-     'ldflags_abi%': [ '<@(ldflags_abi)' ],
      'cflags_PIC%':  [ '<@(cflags_PIC)' ],
+     'ldflags_base%': [ '<@(ldflags_base)' ],
+     'ldflags_abi%': [ '<@(ldflags_abi)' ],
      'ldflags_PIC%': [ '<@(ldflags_PIC)' ],
+     'ldflags_extra%': [ '<@(ldflags_extra)' ],
 
     }, # variables
 
@@ -280,7 +283,8 @@
                          'cflags_cc': [ '<@(cflags_cc_exc)',
                                         '<@(cflags_cc_extra)', ],
                          'ldflags':   [ '<@(ldflags_abi)',
-                                        '<@(ldflags_base)' ],
+                                        '<@(ldflags_base)',
+                                        '<@(ldflags_extra)', ],
                          'msvs_settings': {
                            'VCCLCompilerTool': {
                              'Optimization': '2',
@@ -298,7 +302,8 @@
                                         '<@(cflags_cc_debug)',
                                         '<@(cflags_cc_extra)', ],
                          'ldflags':   [ '<@(ldflags_abi)',
-                                        '<@(ldflags_base)' ],
+                                        '<@(ldflags_base)',
+                                        '<@(ldflags_extra)', ],
                          'msvs_settings': {
                            'VCCLCompilerTool': {
                              'Optimization': '0',
