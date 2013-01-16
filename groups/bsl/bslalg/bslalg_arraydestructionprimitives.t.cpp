@@ -9,6 +9,7 @@
 #include <bslma_default.h>                       // for testing only
 #include <bslma_testallocator.h>                 // for testing only
 #include <bsls_alignmentutil.h>                  // for testing only
+#include <bsls_bsltestutil.h>
 #include <bsls_objectbuffer.h>                   // for testing only
 #include <bsls_assert.h>                         // for testing only
 #include <bsls_asserttest.h>                     // for testing only
