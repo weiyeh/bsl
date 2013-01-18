@@ -22,13 +22,18 @@
 //-----------------------------------------------------------------------------
 //                                  Overview
 //                                  --------
+// 'bslstl::StringBuf' is a value-semantic type component.
+// 
 // Testing the 'stringbuf' class is a little tricky because its implementation
 // is in protected virtual methods.  First, we use a class derived from the
 // 'stringbuf' so that it can access the protected members of 'stringbuf', and
-// test 'stringbuf' methods through the derived class.  Second, we use public
+// test 'stringbuf' methods through the derived class (we will use the methods
+// of the derived class as primary manipulators).  Second, we use public
 // methods of 'stringbuf' to exercise the functionality implemented in the
 // protected methods.  Those public methods are to create 'stringbuf', perform
 // input from 'stringbuf' and perform output into 'stringbuf'.
+// 
+// The standard order for this type is XXXXXXXXXXXXX.
 // =============================
 // STRINGBUF:
 // [ 2] stringbuf(const ALLOCATOR&)
