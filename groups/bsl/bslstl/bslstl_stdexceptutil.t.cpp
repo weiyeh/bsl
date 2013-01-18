@@ -16,8 +16,28 @@ using namespace std;
 //=============================================================================
 //                             TEST PLAN
 //-----------------------------------------------------------------------------
+//                             Overview
+//                             --------
+// 'bslstl::StdExceptUtil' is a 'Type only' utility class. To test it, we follow
+// the standard order of testing for 'Type only' classes. The approach for
+// testing this sort of class is to implement the following:
 //
+//: o a BREATHING TEST where we demonstrate the basic functionality of the
+//:   'bslstl::StdExceptUtil'
+//:
+//: o an EXHAUSTIVE INPUT TEST for the entire possible range of inputs.  In this
+//:   case, the entire range of inputs is also tested in the BREATHING TEST.
+//:
+//: o an AREA TEST for the meaningful, primary range of inputs. In this Test
+//:   Driver, all meaningful ranges of inputs are covered by the BREATHING TEST
+//:   as well.
+//:
+//: o an USAGE EXAMPLE to demonstrate a working example of how a programmer
+//:   might use the component.
 //
+// The custom test apparatuses used are 'testFunction()', a templated free
+// function which throws various exceptions, and 'callTestFunction()', which
+// executes 'testFunction()'.
 //-----------------------------------------------------------------------------
 
 //==========================================================================
