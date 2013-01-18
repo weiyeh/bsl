@@ -26,23 +26,25 @@ using namespace BloombergLP;
 //-----------------------------------------------------------------------------
 //                              Overview
 //                              --------
-// The component to be tested provides a single algorithm to destroy ranges.
-// The main concern (besides that the objects are actually destroyed) is that
-// the destructor calls are elided if the basic object type is bit-wise
-// copyable.
-//
+// 'bslalg::ArrayDestructionPrimitives' is a type-only component that provides
+// a single algorithm to destroy ranges. The main concern (besides that the
+// objects should be actually destroyed) is that the destructor calls should be
+// elided if the basic object type is bit-wise copyable.
+// 
 // In order to facilitate the generation of test object instances, we make a
 // text object have the value semantics of a 'char', and generate an array of
 // test objects from a string specification via a generating function
 // parameterized by the actual test object type.  This lets us reuse the same
 // test code for bitwise-copyable/moveable test types as well as those that do
 // not have those traits.
+// 
+// The standard order of testing for this type of component is XXXXXXXXXXX.
 //-----------------------------------------------------------------------------
 // bslalg::ArrayPrimitives public interface:
 // [ 2] void destroy(T *dstB, T *dstE);
 //-----------------------------------------------------------------------------
 // [ 1] BREATHING TEST
-
+// 
 //=============================================================================
 //                  STANDARD BDE ASSERT TEST MACRO
 //-----------------------------------------------------------------------------
