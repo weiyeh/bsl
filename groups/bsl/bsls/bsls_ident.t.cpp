@@ -13,8 +13,12 @@
 //=============================================================================
 //                             TEST PLAN
 //-----------------------------------------------------------------------------
-// This component does not have any easy way to do runtime checks.
-//
+//                             Overview
+//                             --------
+// This is a type- only component that does not have any easy way to do runtime
+// checks.
+// 
+// The standard order of testing for this type of component is XXXXXXXXXXXX.
 //-----------------------------------------------------------------------------
 // [ 1] Breathing Test (nothing)
 //-----------------------------------------------------------------------------
