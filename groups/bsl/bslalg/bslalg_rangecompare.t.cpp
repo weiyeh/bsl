@@ -25,16 +25,10 @@ using namespace std;
 //=============================================================================
 //                             TEST PLAN
 //-----------------------------------------------------------------------------
-//                              Overview
-//                              --------
-// This component provides equality and less-than comparisons on ranges given
-// by start and end iterators and, optionally, length, all of parameterizable
-// types.  Where length is not provided, the component either calculates it (in
-// cases where the iterator is convertible to a 'const VALUE_TYPE *') or falls
-// back on an inferior implementation requiring two tests per loop iteration,
-// instead of one (in cases where the iterator is not convertible to a
-// 'const VALUE_TYPE *').
-//
+//                             Overview
+//                             --------
+// The component being tested is a utility type-only component.
+// 
 // The implementation uses traits to efficiently forward to 'std::memcmp' or
 // 'std::wmemcmp'.  All fundamental and pointer types have the bit-wise
 // equality-comparable trait.  The concerns range from correctness of
@@ -46,6 +40,9 @@ using namespace std;
 // but no trait.  Finally, in order to trigger instantiation of all possible
 // overloads, we wrap the range pointers into an iterator type that is *not*
 // convertible to the pointer.
+// 
+// The standard testing order for utility-type components includes the
+// following: XXXXXXXXXXXXXXXXXX
 //-----------------------------------------------------------------------------
 // [ 3] bool equal(start1, end1, length1, start2, end2, length2);
 // [ 4] bool lexicographical(start1, end1, length1, start2, end2, length2);
