@@ -25,22 +25,28 @@ using namespace BloombergLP;
 //=============================================================================
 //                             TEST PLAN
 //-----------------------------------------------------------------------------
-// Because 'bsl::pair' is a simple struct containing two data members, there
-// are no real boundary conditions to test.  The main issue to be tested is
-// that the four variants of the class have working constructors.  The class
-// behaves differently when instantiated with types that use
-// 'bslma::Allocator'.  Testing consists mostly of testing all constructors
-// with every combination of allocator-using/non-allocator-using template
-// parameters.  The other combinatorial issue is the propagation of type traits
-// from template parameters to 'bsl::pair' specializations.  Since this is a
-// compile-time computation, it is only necessary to instantiate a
+//                             Overview
+//                             --------
+// Because 'bsl::pair' is a simple value-semantic type struct containing two
+// data members, there are no real boundary conditions to test.  The main issue
+// to be tested is that the four variants of the class have working
+// constructors.  The class behaves differently when instantiated with types
+// that use 'bslma::Allocator'.  Testing consists mostly of testing all
+// constructors with every combination of allocator-using/non-allocator-using
+// template parameters.  The other combinatorial issue is the propagation of
+// type traits from template parameters to 'bsl::pair' specializations.  Since
+// this is a compile-time computation, it is only necessary to instantiate a
 // representative combination of traits.
-//
+// 
+// Our *primary* *manipulators*, therefore, are the constructors.
+// 
 // The test driver is rounded out by invoking each comparison operator for
-// each possible result to ensure that they work correctly.  There is no need
+// each possible result to ensure that it works correctly.  There is no need
 // to do more exhaustive tests on the relationship operators because they are
 // simple pass-through operations and the only thing we are protecting against
-// are typos.
+// is typos.
+// 
+// The standard order of testing for this type of component is XXXXXXXXXXXXX.
 //-----------------------------------------------------------------------------
 // [2] typedef T1 first_type;
 // [2] typedef T2 second_type;
