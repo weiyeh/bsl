@@ -28,7 +28,8 @@ using namespace BloombergLP;
 //                             Overview
 //                             --------
 // Because 'bsl::pair' is a simple value-semantic type struct containing two
-// data members, there are no real boundary conditions to test.  The main issue
+// data members, there are no real boundary conditions to test.  Normally, we
+// would follow the standard 10 stes for testing a VST, however, the main issue
 // to be tested is that the four variants of the class have working
 // constructors.  The class behaves differently when instantiated with types
 // that use 'bslma::Allocator'.  Testing consists mostly of testing all
@@ -45,8 +46,6 @@ using namespace BloombergLP;
 // to do more exhaustive tests on the relationship operators because they are
 // simple pass-through operations and the only thing we are protecting against
 // is typos.
-// 
-// The standard order of testing for this type of component is XXXXXXXXXXXXX.
 //-----------------------------------------------------------------------------
 // [2] typedef T1 first_type;
 // [2] typedef T2 second_type;

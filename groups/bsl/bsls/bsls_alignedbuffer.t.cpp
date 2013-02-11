@@ -17,13 +17,12 @@ using namespace std;
 //-----------------------------------------------------------------------------
 //                             Overview
 //                             --------
-// bsls::AlignedBuffer is a simple template mechanism that provides a few
-// compile-time invariants and two trivial run-time functions. Our tests
-// involve instantiating it with various representative template parameters and
-// verifying the invariants.
+// 'bsls::AlignedBuffer' is a simple template mechanism that provides compile
+// time invariants and two run-time methods to manipulate the raw block of 
+// memory. Our tests involve instantiating the component with various 
+// representative template parameters and verifying the invariants.
 // 
 // We test the invariants and the functions, and provide a usage example test.
-// The standard order of testing is XXXXXXX.
 //-----------------------------------------------------------------------------
 // [2] char *buffer();
 // [2] const char *buffer() const;

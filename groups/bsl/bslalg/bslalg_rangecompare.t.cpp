@@ -40,9 +40,6 @@ using namespace std;
 // but no trait.  Finally, in order to trigger instantiation of all possible
 // overloads, we wrap the range pointers into an iterator type that is *not*
 // convertible to the pointer.
-// 
-// The standard testing order for utility-type components includes the
-// following: XXXXXXXXXXXXXXXXXX
 //-----------------------------------------------------------------------------
 // [ 3] bool equal(start1, end1, length1, start2, end2, length2);
 // [ 4] bool lexicographical(start1, end1, length1, start2, end2, length2);

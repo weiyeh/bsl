@@ -37,8 +37,6 @@ using namespace BloombergLP;
 // parameterized by the actual test object type.  This lets us reuse the same
 // test code for bitwise-copyable/moveable test types as well as those that do
 // not have those traits.
-// 
-// The standard order of testing for this type of component is XXXXXXXXXXX.
 //-----------------------------------------------------------------------------
 // bslalg::ArrayPrimitives public interface:
 // [ 2] void destroy(T *dstB, T *dstE);
